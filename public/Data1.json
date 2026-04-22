@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "The Art of Minimalist Coding",
+    "author": "Elena Vance",
+    "date": "2026-03-15",
+    "category": "Development",
+    "tags": ["Clean Code", "Productivity", "Architecture"],
+    "summary": "Why writing less code is often the most difficult and rewarding skill a developer can master.",
+    "readTime": "5 min"
+  },
+  {
+    "id": 2,
+    "title": "Sustainable Urban Gardens",
+    "author": "Marcus Thorne",
+    "date": "2026-03-28",
+    "category": "Lifestyle",
+    "tags": ["Sustainability", "Gardening", "Urban Living"],
+    "summary": "How to transform a 4x4 balcony into a thriving ecosystem that provides fresh herbs year-round.",
+    "readTime": "8 min"
+  },
+  {
+    "id": 3,
+    "title": "The Future of Neural Interfaces",
+    "author": "Dr. Aris Thorne",
+    "date": "2026-04-02",
+    "category": "Technology",
+    "tags": ["AI", "Neuroscience", "Future Tech"],
+    "summary": "Exploring the ethical implications and hardware breakthroughs in direct brain-to-computer communication.",
+    "readTime": "12 min"
+  },
+  {
+    "id": 4,
+    "title": "Hidden Gems of the Adriatic Coast",
+    "author": "Sofia Ricci",
+    "date": "2026-04-10",
+    "category": "Travel",
+    "tags": ["Travel", "Europe", "Photography"],
+    "summary": "Moving beyond the tourist traps to find the quiet, crystal-clear coves of Montenegro and Albania.",
+    "readTime": "10 min"
+  },
+  {
+    "id": 5,
+    "title": "Brewing the Perfect Pour-Over",
+    "author": "Julian Day",
+    "date": "2026-04-18",
+    "category": "Culinary",
+    "tags": ["Coffee", "Morning Routine", "Guide"],
+    "summary": "A deep dive into water temperature, grind consistency, and the science of extraction.",
+    "readTime": "6 min"
+  },
+  {
+    "id": 6,
+    "title": "Mastering CSS Grid Layouts",
+    "author": "Sarah Jenkins",
+    "date": "2026-04-20",
+    "category": "Design",
+    "tags": ["Frontend", "CSS", "UI/UX"],
+    "summary": "A comprehensive guide to building complex, responsive grid systems without using heavy frameworks.",
+    "readTime": "9 min"
+  }
+]
