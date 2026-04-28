@@ -28,12 +28,19 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const db = client.db("pixgen");
-const appUrl = process.env.BETTER_AUTH_URL || "http://localhost:3000";
+const vercelPreviewUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : null;
+const appUrl =
+  process.env.BETTER_AUTH_URL ||
+  vercelPreviewUrl ||
+  "https://next-js-practice-day-1.vercel.app";
 const trustedOrigins = [
   appUrl,
+  "https://next-js-practice-day-1.vercel.app",
   "http://localhost:3000",
   "http://localhost:3001",
-  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
+  vercelPreviewUrl,
 ].filter(Boolean);
 
 export const auth = betterAuth({
