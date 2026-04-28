@@ -19,14 +19,12 @@ const options = {
 let client;
 
 if (process.env.NODE_ENV === "development") {
-  if (!global._mongoClientPromise) {
-    const localClient = new MongoClient(uri, options);
-    global._mongoClientPromise = localClient.connect();
+  if (!global._mongoClient) {
+    global._mongoClient = new MongoClient(uri, options);
   }
-  client = await global._mongoClientPromise;
+  client = global._mongoClient;
 } else {
-  const localClient = new MongoClient(uri, options);
-  client = await localClient.connect();
+  client = new MongoClient(uri, options);
 }
 
 const db = client.db("pixgen");
