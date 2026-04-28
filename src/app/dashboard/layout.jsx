@@ -1,8 +1,17 @@
-// import React from 'react'
 import Link from "next/link"
-import Navbar from "@/Components/Navbar"
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
 
-const DashLayout = ({children}) => {
+const DashLayout = async ({children}) => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    redirect("/login");
+  }
+
   return (
     <div className="drawer lg:drawer-open">
   <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />

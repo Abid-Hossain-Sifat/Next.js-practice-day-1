@@ -1,10 +1,19 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { authClient } from '@/lib/auth-client'
 
 const Navbar = () => {
   const pathName = usePathname();
+  const router = useRouter();
+  const { data: session, isPending } = authClient.useSession();
+
+  const handleLogout = async () => {
+    await authClient.signOut();
+    router.push('/login');
+    router.refresh();
+  };
 
   return (
     <div className='shadow-sm'>
@@ -34,6 +43,21 @@ const Navbar = () => {
           <Link className={`px-3 py-2 rounded transition ${pathName === '/img' ? 'btn btn-accent btn-sm' : 'hover:bg-gray-100'}`} href="/img">
             Image
           </Link>
+          {!isPending && !session ? (
+            <>
+              <Link className={`px-3 py-2 rounded transition ${pathName === '/login' ? 'btn btn-accent btn-sm' : 'hover:bg-gray-100'}`} href="/login">
+                Login
+              </Link>
+              <Link className={`px-3 py-2 rounded transition ${pathName === '/signup' ? 'btn btn-accent btn-sm' : 'hover:bg-gray-100'}`} href="/signup">
+                Signup
+              </Link>
+            </>
+          ) : null}
+          {!isPending && session ? (
+            <button onClick={handleLogout} className='btn btn-error btn-sm text-white'>
+              Logout
+            </button>
+          ) : null}
         </nav>
       </div>
     </div>
