@@ -28,8 +28,17 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const db = client.db("pixgen");
+const appUrl = process.env.BETTER_AUTH_URL || "http://localhost:3000";
+const trustedOrigins = [
+  appUrl,
+  "http://localhost:3000",
+  "http://localhost:3001",
+  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
+].filter(Boolean);
 
 export const auth = betterAuth({
+  baseURL: appUrl,
+  trustedOrigins,
   database: mongodbAdapter(db, { client }),
   emailAndPassword: {
     enabled: true,
